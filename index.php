@@ -202,5 +202,5 @@ include './includes/templates/header.php';
 
 <?php 
 $inicio = true;
-include './includes/templates/header.php'; 
+include './includes/templates/footer.php'; 
 ?>
