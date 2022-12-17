@@ -1,0 +1,14 @@
+.alerta {
+
+    padding: .5rem;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+
+    &.error{
+        background-color: rgb(179, 38, 38);
+        color: white;
+    }
+
+}
