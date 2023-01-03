@@ -30,9 +30,9 @@ $creado          = date('Y-m-d');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        echo '<pre>';
-        var_dump($_POST);
-        echo '</pre>';
+        // echo '<pre>';
+        // var_dump($_POST);
+        // echo '</pre>';
 
         $titulo          = mysqli_real_escape_string($db, $_POST['titulo']);
         $precio          = mysqli_real_escape_string($db, $_POST['precio']);
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Asignamos files a una variable
         $imagen = $_FILES['imagen'];
 
-        var_dump($imagen['name']);
+        // var_dump($imagen['name']);
 
         if( !$titulo ){
                 $errores[] = "Debes agregar un titulo";
@@ -113,7 +113,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 //echo de la variable $sql
                 // echo $sql;
 
-                mysqli_query($db, $sql);
+                $resultado = mysqli_query($db, $sql);
+
+                if($resultado){
+                        //Redireccionamos al usuario
+                        header('Location: /bienesRaicesPHP_inicio/admin?mensaje=Registrado Correctamente');
+                }
         }
         
 
