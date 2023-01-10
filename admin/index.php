@@ -1,4 +1,15 @@
 <?php
+
+// importar la condicion
+require '../includes/config/database.php';
+$db = conectarDb();
+
+// escribir el query
+$query = "SELECT id, titulo, imagen, precio FROM propiedades";
+
+// consultar la bd
+$resultado = mysqli_query($db, $query);
+
 $mensaje = '';
 if(isset($_GET['mensaje'])){
         $mensaje = $_GET['mensaje'];
@@ -23,13 +34,18 @@ incluirTemplate('header');
                         <th>ACCIONES</th>
                 </thead>
                 <tbody>
+                        <?php while($propiedad = mysqli_fetch_assoc($resultado)): ?>
                         <tr>
-                           <td>1</td>
-                           <td>Casa Meca</td>
-                           <td><img src="../imagenes/milaneso0e2e4b1d25ea9009ade5f362cd9debed.jpg" alt="Elabb"></td>
-                           <td></td>
-                           <td></td>     
+                           <td><?php echo $propiedad['id'] ?></td>
+                           <td><?php echo $propiedad['titulo'] ?></td>
+                           <td><img src="../imagenes/<?php echo $propiedad['imagen'] ?>.png" alt="Elabb" class="imagen-tabla"></td>
+                           <td>$2000000</td>
+                           <td>
+                                <a href="#" class="boton-rojo-block">Actualizar</a>
+                                <a href="#" class="boton-amarillo-block">Eliminar</a>
+                           </td>   
                         </tr>
+                        <?php endwhile; ?>
                 </tbody>
         </table>
 
