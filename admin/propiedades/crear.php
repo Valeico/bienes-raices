@@ -154,7 +154,7 @@ incluirTemplate('header');
                         <textarea id="descripcion" name="descripcion" cols="30" rows="10"><?php echo $descripcion; ?></textarea>
                 </fieldset>
                 <fieldset>
-                        <legend>Informacion de la propiedad</legend>
+                        <legend>Informacionn de la propiedad</legend>
 
                         <label for="habitaciones">Habitaciones</label>
                         <input type="number" id="habitaciones" name="habitaciones" placeholder="Ej:3" min="1" max="9" value="<?php echo $habitaciones; ?>">
